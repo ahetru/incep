@@ -37,9 +37,6 @@ clean: down
 	docker system prune -af --volumes
 
 fclean:
-ifndef CONFIRM
-$(error fclean is destructive, restart command with `make flcean CONFIRM=yes`)
-endif
 	$(MAKE) clean
 	sudo rm -rf ${DATA_PATH}/wordpress/*
 	sudo rm -rf ${DATA_PATH}/mariadb/*
