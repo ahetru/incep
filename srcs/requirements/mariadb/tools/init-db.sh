@@ -23,7 +23,7 @@ GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'%';
 FLUSH PRIVILEGES;
 EOF
 
-echo "Base de données initialisée avec succès"
+echo "Database Initialized successfully"
 
 # Démarrer MariaDB en mode normal
 exec mysqld --user=mysql
