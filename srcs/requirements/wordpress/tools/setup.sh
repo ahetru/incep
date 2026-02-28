@@ -4,10 +4,9 @@ set -e
 
 # Lire les secrets
 DB_PASSWORD=$(cat /run/secrets/db_password)
-WP_ADMIN_PASSWORD=$(cat /run/secrets/wp_admin_password | grep wp_admin_pass | cut -d'=' -f2)
-WP_USER_PASSWORD=$(cat /run/secrets/wp_user_password | grep wp_admin_pass | cut -d'=' -f2)
+WP_ADMIN_PASSWORD=$(cat /run/secrets/wp_admin_password)
+WP_USER_PASSWORD=$(cat /run/secrets/wp_user_password)
 
-# Attendre que MariaDB soit prêt
 echo "Attente de MariaDB..."
 while ! mysqladmin ping -h"${DB_HOST%:*}" -P"${DB_HOST#*:}" --silent; do
     sleep 1
